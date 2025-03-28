@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<Pane minHeight="915.0" minWidth="412.0" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="br.com.corehub.agibank.corefx.contaController">
+<Pane minHeight="915.0" minWidth="412.0" xmlns="http://javafx.com/javafx/21.0.1" fx:controller="br.com.corehub.agibank.corefx.contaController">
    <children>
       <VBox alignment="TOP_CENTER" prefHeight="915.0" prefWidth="412.0">
          <children>

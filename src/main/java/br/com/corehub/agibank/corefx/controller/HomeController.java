@@ -3,18 +3,15 @@ package br.com.corehub.agibank.corefx.controller;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
+import java.sql.SQLException;
+
 public class HomeController {
 
-    private String userName;
-
     @FXML
-    private Label labelNomeUsuario;
+    public Label labelNomeUsuario;
 
-    @FXML
-    public void initialize() {
-    }
 
-//    @FXML
+    //    @FXML
 //    private VBox containerContas; // O container do ScrollPane
 //
 //    @FXML

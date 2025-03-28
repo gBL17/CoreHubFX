@@ -31,8 +31,6 @@ public class LoginController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
     }
 
-    private static HomeController homeController = new HomeController();
-
     @FXML
     private void login(ActionEvent actionEvent) throws IOException, SQLException {
         String usuario = campoApelido.getText();
@@ -41,7 +39,6 @@ public class LoginController implements Initializable {
         UsuarioDAO usuarioDao = new UsuarioDAO();
         Usuario usuarioVerificado = usuarioDao.buscarUsuarioApelido(usuario);
         CifradorSenha cifrador = new CifradorSenha();
-        Parent root;
 
         if (usuario == null) {
             exibirAlerta("Erro de Login", "Usuario não pode ser vazio!");
@@ -52,11 +49,7 @@ public class LoginController implements Initializable {
         }
 
         if(usuarioVerificado != null && cifrador.validarSenhaCrifrada(usuarioVerificado.getSenha(),senha)){
-            root = FXMLLoader.load(getClass().getResource("/br/com/corehub/agibank/corefx/view/home.fxml"));
-            Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-            Scene scene = new Scene(root, 412, 915);
-            stage.setScene(scene);
-            stage.show();
+            navegarHome(actionEvent, usuarioVerificado);
         } else {
             exibirAlerta("Erro de Login", "Usuário ou Senha incorreta!");
         }
@@ -68,5 +61,18 @@ public class LoginController implements Initializable {
         alerta.setHeaderText(null);
         alerta.setContentText(mensagem);
         alerta.showAndWait();
+    }
+
+    public void navegarHome(ActionEvent actionEvent, Usuario usuario) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/br/com/corehub/agibank/corefx/view/home.fxml"));
+        Parent root = loader.load();
+
+        HomeController homeController = loader.getController();
+        homeController.labelNomeUsuario.setText(usuario.getNome());
+
+        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root, 412, 915);
+        stage.setScene(scene);
+        stage.show();
     }
 }

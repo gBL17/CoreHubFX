@@ -17,7 +17,7 @@
       minWidth="412.0"
       xmlns="http://javafx.com/javafx/23.0.1"
       xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="br.com.corehub.agibank.corefx.controller.loginController">
+      fx:controller="br.com.corehub.agibank.corefx.controller.LoginController">
    <children>
       <Pane prefHeight="200.0" prefWidth="200.0">
          <children>
@@ -42,7 +42,7 @@
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" styleClass="botoes">
                <children>
                   <Button fx:id="register" mnemonicParsing="false" prefHeight="55.0" prefWidth="132.0" styleClass="botao" text="Registrar" />
-                  <Button fx:id="login" mnemonicParsing="false" prefHeight="55.0" prefWidth="132.0" styleClass="botao" text="Login" />
+                  <Button fx:id="login" onAction="#navegarHome" mnemonicParsing="false" prefHeight="55.0" prefWidth="132.0" styleClass="botao" text="Login" />
                </children>
                <VBox.margin>
                   <Insets top="80.0" />
